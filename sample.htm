@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script
+  src="https://code.jquery.com/jquery-3.6.1.js"
+  integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+  crossorigin="anonymous"></script>
+  <script>
+
+
+$(document).on('click', "#submitbtn" , function() {
+let emailAddress = $("#emailaddress").val();
+let checkValidEmailURL = "https://emailvalidation.abstractapi.com/v1/?api_key=1b7adae9bb0d459c932da0ec81fb2779&email="+emailAddress;
+$.getJSON(checkValidEmailURL, function(data) {
+	$("#result").html(data.deliverability);
+})
+     //code here ....
+});
+</script>
+</head>
+<body>
+
+<h2>Check Email Address</h2>
+
+
+  <label for="fname">Email Address:</label><br>
+  <input type="text" id="emailaddress" placeholder="Enter your email address"><br>
+ 
+  <input type="button" id="submitbtn" value="Submit">
+  <br/>
+  
+  <div>Result : <span id="result"></span> </div>
+
+
+
+</body>
+</html>
+
